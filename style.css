@@ -48,6 +48,316 @@
 @import url(css/themify-icons.css);
 @import url(css/nice-select.css);
 @import url(css/jquery-ui.min.css);
+
+.loading {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+/* Code for Map Style */
+        .map-area {
+            padding: 0 15px;
+        }
+
+        .map-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(50px);
+            opacity: 0;
+            animation: mapSlideUp 0.8s ease-out forwards;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .map-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .google-map {
+            width: 100%;
+            height: 450px;
+            border: 0;
+            display: block;
+            filter: grayscale(0.2) contrast(1.1);
+            transition: all 0.4s ease;
+        }
+
+        .map-wrapper:hover .google-map {
+            filter: grayscale(0) contrast(1);
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transform: translateX(-20px);
+            opacity: 0;
+            animation: infoSlideIn 0.6s ease-out 0.3s forwards;
+        }
+
+        .location-pin {
+            animation: bounce 2s infinite;
+        }
+
+        .pin-icon {
+            font-size: 24px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .map-info h4 {
+            color: #2c3e50;
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .map-info p {
+            color: #7f8c8d;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes mapSlideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes infoSlideIn {
+            from {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-5px);
+            }
+
+            60% {
+                transform: translateY(-3px);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .google-map {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .google-map {
+                height: 350px;
+            }
+
+            .map-overlay {
+                top: 15px;
+                left: 15px;
+                padding: 12px 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .google-map {
+                height: 300px;
+            }
+
+            .map-overlay {
+                position: relative;
+                top: 0;
+                left: 0;
+                border-radius: 0 0 15px 15px;
+                margin-top: -5px;
+                transform: translateY(20px);
+                animation: mobileInfoSlide 0.6s ease-out 0.3s forwards;
+            }
+
+            .map-wrapper {
+                border-radius: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .google-map {
+                height: 250px;
+            }
+
+            .map-overlay {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+                padding: 15px;
+            }
+
+            .map-info h4 {
+                font-size: 1rem;
+            }
+
+            .map-info p {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .google-map {
+                height: 200px;
+            }
+        }
+
+        @keyframes mobileInfoSlide {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        
+/* Style for logo and name */
+.nav-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 12px;
+    background: transparent;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-brand::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.7s ease;
+}
+
+.nav-brand:hover::before {
+    left: 100%;
+}
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-3d {
+    position: relative;
+    perspective: 500px;
+    transition: transform 0.5s ease;
+}
+
+.brand-logo {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2),
+                0 0 0 1px rgba(0,0,0,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+    /* transition: all 0.4s ease; */
+    transform-style: preserve-3d;
+    animation: float 3s ease-in-out infinite;
+}
+
+.logo-3d:hover .brand-logo {
+    /* transform: rotateY(15deg) scale(1.1); */
+    box-shadow: 0 12px 20px rgba(0,0,0,0.25),
+                0 0 0 1px rgba(0,0,0,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .brand-logo {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-logo {
+        height: 35px;
+        width: 35px;
+    }
+    
+    .nav-brand {
+        padding: 8px 12px;
+    }
+}
+
+/* For very small screens */
+@media (max-width: 360px) {
+    .brand-text {
+        font-size: 0.9rem;
+    }
+}
+
+
 /* :: 3.0 Base CSS */
 * {
   margin: 0;
