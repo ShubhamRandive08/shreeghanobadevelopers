@@ -830,7 +830,7 @@
 /* For very small screens */
 @media (max-width: 360px) {
   .brand-text {
-    font-size: 0.9rem;
+    font-size: 1.3rem;
   }
 }
 
