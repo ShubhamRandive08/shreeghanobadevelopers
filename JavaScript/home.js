@@ -3,7 +3,7 @@
 let currentZoom = 100, currentPage = 1, currentPDF = '';
 
 function openLocationMap() {
-    window.open('https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3592.201746922758!2d74.20243457519612!3d18.700172382428583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDQyJzAwLjYiTiA3NMKwMTInMTguMCJF!5e1!3m2!1sen!2sin!4v1762355804326!5m2!1sen!2sin', '_blank');
+    window.open('https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3593.182934832184!2d74.09911677519486!3d18.653881682465833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDM5JzE0LjAiTiA3NMKwMDYnMDYuMSJF!5e1!3m2!1sen!2sin!4v1762531094522!5m2!1sen!2sin', 'target');
 }
 
 function openPDFModal(pdfPath, title) {
@@ -62,7 +62,7 @@ const projects = {
         name: "Aditya City",
         rate: "1800/ Sq. Ft.",
         location: "Sanasawadi",
-        Contact_No : "+91 9595857072",
+        Contact_No: "+91 9595857072",
         images: ["img/bg-img/GD1.jpg", "img/bg-img/GD2.jpg", "img/bg-img/GD3.jpg"],
         description: "\"आदित्य सिटी\" मध्ये घराला घर, जमिनीला जमीन! सनसवाडीच्या हिरव्यागार वातावरणात, आपल्या स्वप्नांची निवासी जागा. उत्तम सोयी, विकसित परिसर आणि शहराच्या मुख्य भागाशी चांगले रस्ते संपर्क.",
         pdf: "pdf/DINGRAJWADI NA-Model.pdf"
@@ -71,7 +71,7 @@ const projects = {
         name: "SaiKrupa Park",
         rate: "600 / Sq. Ft.",
         location: "Nimgoan Malungi",
-        Contact_No : "+91 9595857072",
+        Contact_No: "+91 9595857072",
         images: ["img/NimgoanMalungi/NM1.jpg"],
         description: "\"साईकृपा पार्क\" मध्ये स्वस्त दरात उत्तम जागा! निमगाव मालुंगी येथील शांत वातावरणात आपले स्वतःचे घर बांधण्याची संधी. मूलभूत सोयी, स्वच्छ पाणीपुरवठा आणि चांगली वाहतूक सुविधा.",
         pdf: "pdf/NIMGAON991 FINAL-Model.pdf"
@@ -80,7 +80,7 @@ const projects = {
         name: "Aditya City 3",
         rate: "1800/ Sq. Ft.",
         location: "Sanaswadi",
-        Contact_No : "+91 9595857072",
+        Contact_No: "+91 9595857072",
         images: ["img/bg-img/GD3.jpg", "img/bg-img/GD1.jpg", "img/bg-img/GD2.jpg"],
         description: "\"आदित्य सिटी 3\" हा आदित्य सिटीचा नवीन टप्पा. अधिक सोयी, अधिक सुविधा आणि अधिक आरामदायी जीवनशैली. पूर्ण विकसित रहिवासी परिसर आणि आधुनिक सुविधांसह.",
         pdf: "pdf/DINGRAJWADI NA-Model2.pdf"
@@ -89,7 +89,7 @@ const projects = {
         name: "Aditya City 4",
         rate: "1800/ Sq. Ft.",
         location: "Sanaswadi",
-        Contact_No : "+91 9595857072",
+        Contact_No: "+91 9595857072",
         images: ["img/bg-img/GD4.jpg", "img/bg-img/GD5.jpg", "img/bg-img/GD6.jpg"],
         description: "\"आदित्य सिटी 4\" मध्ये लक्झरी अपार्टमेंट्स आणि विला. स्विमिंग पूल, जिम, बागा आणि इतर प्रीमियम सुविधांसह उच्च दर्जाची राहणी.",
         pdf: "pdf/DINGRAJWADI NA-Model3.pdf"
@@ -98,7 +98,7 @@ const projects = {
         name: "Aditya City 5",
         rate: "1800/ Sq. Ft.",
         location: "Sanaswadi",
-        Contact_No : "+91 9595857072",
+        Contact_No: "+91 9595857072",
         images: ["img/bg-img/GD5.jpg", "img/bg-img/GD6.jpg", "img/bg-img/GD1.jpg"],
         description: "\"आदित्य सिटी 5\" हा व्यावसायिक आणि निवासी दोन्ही उद्देशांसाठी उत्तम. दुकाने, ऑफिसे आणि रहिवासी अपार्टमेंट्सचे मिश्रण. व्यवसाय आणि घर एकाच ठिकाणी.",
         pdf: "pdf/DINGRAJWADI NA-Model4.pdf"
@@ -107,7 +107,7 @@ const projects = {
         name: "Aditya City 6",
         rate: "1800/ Sq. Ft.",
         location: "Sanaswadi",
-        Contact_No : "+91 9595857072",
+        Contact_No: "+91 9595857072",
         images: ["img/bg-img/GD6.jpg", "img/bg-img/GD1.jpg", "img/bg-img/GD2.jpg"],
         description: "\"आदित्य सिटी 6\" मध्ये इको-फ्रेंडली डिझाइन आणि टिकाऊ बांधकाम. ऊर्जा कार्यक्षमता, पावनापाणी संग्रहण आणि हरित क्षेत्रांसह पर्यावरणास अनुकूल रहिवासी परिसर.",
         pdf: "pdf/DINGRAJWADI NA-Model5.pdf"
@@ -133,10 +133,6 @@ function openProjectPopup(projectId) {
     document.getElementById('projectLocation').textContent = project.location;
     document.getElementById('projectDescription').textContent = project.description;
     document.getElementById('contactNumber').textContent = project.Contact_No;
-
-    // Update PDF button
-    const pdfBtn = document.getElementById('projectPdfBtn');
-    pdfBtn.setAttribute('onclick', `openPDFModal('${project.pdf}', '${project.name}')`);
 
     // Load and display images
     const images = project.images;
