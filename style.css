@@ -1041,7 +1041,6 @@
   left: 100%;
 }
 
-
 .logo-container {
   display: flex;
   align-items: center;
@@ -1050,8 +1049,13 @@
 
 .logo-3d {
   position: relative;
-  perspective: 500px;
+  perspective: 1000px;
   transition: transform 0.5s ease;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .brand-logo {
@@ -1059,49 +1063,217 @@
   width: 50px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  /* transition: all 0.4s ease; */
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 0 0 6px rgba(255, 255, 255, 0.1),
+    0 8px 20px rgba(0, 0, 0, 0.3),
+    inset 0 0 15px rgba(255, 255, 255, 0.2);
+  animation: logo-pulse-glow 4s ease-in-out infinite;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  z-index: 2;
   transform-style: preserve-3d;
-  animation: float 3s ease-in-out infinite;
+  backface-visibility: hidden;
 }
 
+/* Logo Back Side (3D Effect) */
+.brand-logo-back {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 0 0 6px rgba(255, 255, 255, 0.1),
+    0 8px 20px rgba(0, 0, 0, 0.3),
+    inset 0 0 15px rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  z-index: 1;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.brand-logo-back::before {
+  content: 'SGD';
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Rotating Rings */
+.logo-ring-1 {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  animation: logo-rotate 10s linear infinite;
+  z-index: 0;
+}
+
+.logo-ring-2 {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: logo-rotate-reverse 8s linear infinite;
+  z-index: 0;
+}
+
+/* Light Effects */
+.logo-light-effect {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  animation: logo-rotate 15s linear infinite;
+  z-index: 0;
+}
+
+/* 3D Flip Effect on Hover */
 .logo-3d:hover .brand-logo {
-  /* transform: rotateY(15deg) scale(1.1); */
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25),
-    0 0 0 1px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transform: rotateY(180deg);
 }
 
-/* Floating animation */
+.logo-3d:hover .brand-logo-back {
+  transform: rotateY(0deg);
+}
+
+/* Enhanced Floating Animation */
 @keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0);
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
   }
+  33% {
+    transform: translateY(-3px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(2px) rotate(-1deg);
+  }
+}
 
+/* Logo Pulse Glow */
+@keyframes logo-pulse-glow {
+  0%, 100% {
+    box-shadow: 
+      0 0 0 6px rgba(255, 255, 255, 0.162),
+      0 8px 20px rgba(0, 0, 0, 0),
+      inset 0 0 15px rgba(255, 255, 255, 1);
+  }
   50% {
-    transform: translateY(-5px);
+    box-shadow: 
+      0 0 0 8px rgba(255, 255, 255, 0.162),
+      0 12px 25px rgba(255, 255, 255, 0.4),
+      inset 0 0 20px rgba(255, 255, 255, 1);
   }
+}
+
+/* Rotate Animations */
+@keyframes logo-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes logo-rotate-reverse {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Enhanced Hover Effects */
+.logo-3d:hover .logo-ring-1 {
+  animation-duration: 5s;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.logo-3d:hover .logo-ring-2 {
+  animation-duration: 4s;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.logo-3d:hover .logo-light-effect {
+  animation-duration: 8s;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .brand-logo {
+  .logo-3d {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .brand-logo,
+  .brand-logo-back {
     height: 40px;
     width: 40px;
+  }
+  
+  .brand-logo-back::before {
+    font-size: 12px;
+  }
+  
+  .logo-ring-1 {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .logo-ring-2 {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .logo-light-effect {
+    width: 60px;
+    height: 60px;
   }
 }
 
 @media (max-width: 480px) {
-  .brand-logo {
+  .logo-3d {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .brand-logo,
+  .brand-logo-back {
     height: 35px;
     width: 35px;
   }
-
+  
+  .brand-logo-back::before {
+    font-size: 10px;
+  }
+  
+  .logo-ring-1 {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .logo-ring-2 {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .logo-light-effect {
+    width: 55px;
+    height: 55px;
+  }
+  
   .nav-brand {
     padding: 8px 12px;
   }
