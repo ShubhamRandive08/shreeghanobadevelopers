@@ -10,7 +10,7 @@
 
     <!-- Title  -->
     <title>Shree Ghanoba Developers</title>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Favicon  -->
     <link rel="icon" href="img/core-img/SGD.jpg">
 
@@ -20,6 +20,69 @@
 </head>
 
 <body>
+
+<!-- Project Details Popup -->
+<div class="popup-overlay" id="projectPopup">
+    <div class="popup-content">
+        <button class="close-btn" id="closePopup">&times;</button>
+        <div class="popup-header">
+            <h2 id="projectName">Project Name</h2>
+        </div>
+        <div class="popup-body">
+            <!-- Image Slider -->
+            <div class="project-image-slider">
+                <img src="" alt="Project Image" class="project-image active" id="projectImage1">
+                <img src="" alt="Project Image" class="project-image" id="projectImage2">
+                <img src="" alt="Project Image" class="project-image" id="projectImage3">
+                <div class="slider-nav">
+                    <button class="slider-dot active" data-slide="0"></button>
+                    <button class="slider-dot" data-slide="1"></button>
+                    <button class="slider-dot" data-slide="2"></button>
+                </div>
+            </div>
+            
+            <div class="project-details">
+                <div class="detail-row">
+                    <span class="detail-label">Rate:</span>
+                    <span class="detail-value rate" id="projectRate"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Location:</span>
+                    <span class="detail-value location" id="projectLocation"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Description:</span>
+                    <span class="detail-value" id="projectDescription"></span>
+                </div>
+            </div>
+            
+            <div class="property-meta-data d-flex align-items-end justify-content-between">
+                <div class="space">
+                    <button class="smart-btn" onclick="openPDFModal('', '')" id="projectPdfBtn">
+                        <i class="fas fa-file-pdf"></i> View Brochure
+                    </button>
+                </div>
+                <div class="space">
+                    <button class="smart-btn enquiry-btn" onclick="openEnquiryForm()">
+                        <i class="fas fa-phone"></i> Contact Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Preloader -->
     <div id="preloader">
         <div class="south-load"></div>
@@ -210,234 +273,7 @@
         </div>
     </section>
     <!-- ##### Hero Area End ##### -->
-
-    <!-- ##### Advance Search Area Start ##### -->
-    <div class="south-search-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="advanced-search-form">
-                        <!-- Search Title -->
-                        <div class="search-title">
-                            <p>Search for your Land</p>
-                        </div>
-                        <!-- Search Form -->
-                        <form action="#" method="post" id="advanceSearch">
-                            <div class="row">
-
-                                <div class="col-12 col-md-4 col-lg-3">
-                                    <div class="form-group">
-                                        <input type="input" class="form-control" name="input" placeholder="Keyword">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-lg-3">
-                                    <div class="form-group">
-                                        <select class="form-control" id="cities">
-                                            <option>All Cities</option>
-                                            <option>Riga</option>
-                                            <option>Melbourne</option>
-                                            <option>Vienna</option>
-                                            <option>Vancouver</option>
-                                            <option>Toronto</option>
-                                            <option>Calgary</option>
-                                            <option>Adelaide</option>
-                                            <option>Perth</option>
-                                            <option>Auckland</option>
-                                            <option>Helsinki</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-lg-3">
-                                    <div class="form-group">
-                                        <select class="form-control" id="catagories">
-                                            <option>All Catagories</option>
-                                            <option>Apartment</option>
-                                            <option>Bar</option>
-                                            <option>Farm</option>
-                                            <option>House</option>
-                                            <option>Store</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-lg-3">
-                                    <div class="form-group">
-                                        <select class="form-control" id="offers">
-                                            <option>All Offers</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-xl-3">
-                                    <div class="form-group">
-                                        <select class="form-control" id="listings">
-                                            <option>All Listings</option>
-                                            <option>Listings 1</option>
-                                            <option>Listings 2</option>
-                                            <option>Listings 3</option>
-                                            <option>Listings 4</option>
-                                            <option>Listings 5</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-xl-2">
-                                    <div class="form-group">
-                                        <select class="form-control" id="bedrooms">
-                                            <option>Bedrooms</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5+</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-xl-2">
-                                    <div class="form-group">
-                                        <select class="form-control" id="bathrooms">
-                                            <option>Bathrooms</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5+</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-8 col-lg-12 col-xl-5 d-flex">
-                                    <!-- Space Range -->
-                                    <div class="slider-range">
-                                        <div data-min="120" data-max="820" data-unit=" sq. ft"
-                                            class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"
-                                            data-value-min="120" data-value-max="820">
-                                            <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
-                                            <span class="ui-slider-handle ui-state-default ui-corner-all"
-                                                tabindex="0"></span>
-                                            <span class="ui-slider-handle ui-state-default ui-corner-all"
-                                                tabindex="0"></span>
-                                        </div>
-                                        <div class="range">120 sq. ft - 820 sq. ft</div>
-                                    </div>
-
-                                    <!-- Distance Range -->
-                                    <div class="slider-range">
-                                        <div data-min="10" data-max="1300" data-unit=" mil"
-                                            class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"
-                                            data-value-min="10" data-value-max="1300">
-                                            <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
-                                            <span class="ui-slider-handle ui-state-default ui-corner-all"
-                                                tabindex="0"></span>
-                                            <span class="ui-slider-handle ui-state-default ui-corner-all"
-                                                tabindex="0"></span>
-                                        </div>
-                                        <div class="range">10 mil - 1300 mil</div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 search-form-second-steps">
-                                    <div class="row">
-
-                                        <div class="col-12 col-md-4 col-lg-3">
-                                            <div class="form-group">
-                                                <select class="form-control" id="types">
-                                                    <option>All Types</option>
-                                                    <option>Apartment <span>(30)</span></option>
-                                                    <option>Land <span>(69)</span></option>
-                                                    <option>Villas <span>(103)</span></option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-md-4 col-lg-3">
-                                            <div class="form-group">
-                                                <select class="form-control" id="catagories2">
-                                                    <option>All Catagories</option>
-                                                    <option>Apartment</option>
-                                                    <option>Bar</option>
-                                                    <option>Farm</option>
-                                                    <option>House</option>
-                                                    <option>Store</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-md-4 col-lg-3">
-                                            <div class="form-group">
-                                                <select class="form-control" id="Actions">
-                                                    <option>All Actions</option>
-                                                    <option>Sales</option>
-                                                    <option>Booking</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-md-4 col-lg-3">
-                                            <div class="form-group">
-                                                <select class="form-control" id="city2">
-                                                    <option>All City</option>
-                                                    <option>City 1</option>
-                                                    <option>City 2</option>
-                                                    <option>City 3</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-md-4">
-                                            <div class="form-group">
-                                                <select class="form-control" id="Actions3">
-                                                    <option>All Actions</option>
-                                                    <option>Sales</option>
-                                                    <option>Booking</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-md-4">
-                                            <div class="form-group">
-                                                <select class="form-control" id="city3">
-                                                    <option>All City</option>
-                                                    <option>City 1</option>
-                                                    <option>City 2</option>
-                                                    <option>City 3</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-md-4">
-                                            <div class="form-group">
-                                                <select class="form-control" id="city5">
-                                                    <option>All City</option>
-                                                    <option>City 1</option>
-                                                    <option>City 2</option>
-                                                    <option>City 3</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 d-flex justify-content-between align-items-end">
-                                    <!-- More Filter -->
-                                    <div class="more-filter">
-                                        <a href="#" id="moreFilter">+ More filters</a>
-                                    </div>
-                                    <!-- Submit -->
-                                    <div class="form-group mb-0">
-                                        <button type="submit" class="btn south-btn">Search</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+     
     <!-- ##### Advance Search Area End ##### -->
 
     <!-- ##### Featured Properties Area Start ##### -->
@@ -479,8 +315,8 @@
                                 <p>"आदित्य सिटी" मध्ये घराला घर, जमिनीला जमीन! सनसवाडीच्या हिरव्यागार वातावरणात, आपल्या
                                     स्वप्नांची निवासी जागा.</p>
                                 <div class="property-meta-data d-flex align-items-end justify-content-between">
-                                    <div class="garage"><button class="smart-btn view-details-btn">View Details</button>
-                                    </div>
+                                        <div class="garage"><button class="smart-btn view-details-btn">View Details</button>
+                                        </div>
                                     <div class="space"><button class="smart-btn enquiry-btn">Enquiry</button></div>
                                 </div>
                             </div>
@@ -718,42 +554,39 @@
                         <!-- Single Testimonial Slide -->
                         <div class="single-testimonial-slide text-center">
                             <h5>Perfect Home for me</h5>
-                            <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus
-                                blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et
-                                tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic
-                                iturut magna.</p>
+                            <p>"घनोबा डेव्हलपर्सची सेवा खूप छान आणि व्यावसायिक होती. खरेदीदरम्यान कोणतीही अडचण आली नाही.
+                                विक्रीनंतरही सर्व सेवा वेळेत मिळाल्या. जमीन खरेदी करताना पूर्ण मार्गदर्शन आणि सहकार्य
+                                मिळाले. संपूर्ण प्रक्रियेदरम्यान पारदर्शकता राखली. खूप समाधानी आहोत!"</p>
 
                             <div class="testimonial-author-info">
-                                <img src="img/bg-img/feature6.jpg" alt="">
-                                <p>Daiane Smith, <span>Customer</span></p>
+                                <img src="img/core-img/SGD.jpg" alt="">
+                                <p>Shubham Randive, <span>Customer</span></p>
                             </div>
                         </div>
 
                         <!-- Single Testimonial Slide -->
                         <div class="single-testimonial-slide text-center">
-                            <h5>Perfect Home for me</h5>
-                            <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus
-                                blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et
-                                tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic
-                                iturut magna.</p>
+                            <h5>Perfect Land for me</h5>
+                            <p>"घनोबा डेव्हलपर्स कडून जमीन घेतली आणि खूप समाधान वाटले. पेमेंटचे पर्याय सोपे आणि सोयीस्कर
+                                होते. कागदपत्रांची प्रक्रिया पारदर्शक आणि सुलभ झाली. बिल्डरचा सहकार्याचा दर्जा उत्तम
+                                होता. खरोखर विश्वासार्ह आणि प्रामाणिक बिल्डर!"</p>
 
                             <div class="testimonial-author-info">
-                                <img src="img/bg-img/feature6.jpg" alt="">
-                                <p>Daiane Smith, <span>Customer</span></p>
+                                <img src="img/core-img/SGD.jpg" alt="">
+                                <p>Shubham Randive, <span>Customer</span></p>
                             </div>
                         </div>
 
                         <!-- Single Testimonial Slide -->
                         <div class="single-testimonial-slide text-center">
-                            <h5>Perfect Home for me</h5>
-                            <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus
-                                blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et
-                                tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic
-                                iturut magna.</p>
+                            <h5>Perfect Land for me</h5>
+                            <p>"तीन वर्षांपूर्वी घनोबा डेव्हलपर्सकडून प्लॉट खरेदी केला. लोकेशन अतिशय चांगली आणि
+                                भविष्यातील विकासाची मोठी शक्यता होती. किंमत आणि गुणवत्तेचे प्रमाण उत्कृष्ट होते. आज त्या
+                                जागेची किंमत तिप्पटीपेक्षा जास्त झाली आहे. निवेशाचा सर्वोत्तम निर्णय ठरला!"</p>
 
                             <div class="testimonial-author-info">
-                                <img src="img/bg-img/feature6.jpg" alt="">
-                                <p>Daiane Smith, <span>Customer</span></p>
+                                <img src="img/core-img/SGD.jpg" alt="">
+                                <p>Shubham Randive, <span>Customer</span></p>
                             </div>
                         </div>
                     </div>
@@ -782,14 +615,15 @@
                                 <ul>
                                     <li class="d-flex align-items-center justify-content-between"><span>Monday -
                                             Sunday</span> <span>10 AM - 7 PM</span></li>
-                                    
+
                                 </ul>
                             </div>
                             <!-- Address -->
                             <div class="address">
                                 <h6><img src="img/icons/phone-call.png" alt=""> +91 9595857072</h6>
                                 <h6><img src="img/icons/envelope.png" alt=""> ghanobadevelopers7@gmail.com</h6>
-                                <h6><img src="img/icons/location.png" alt=""> Haveli Complex, Kalewadi Pimpari Road Near Dhanagarbaba Mandir, Thergoan, 411033</h6>
+                                <h6><img src="img/icons/location.png" alt=""> Haveli Complex, Kalewadi Pimpari Road Near
+                                    Dhanagarbaba Mandir, Thergoan, 411033</h6>
                             </div>
                         </div>
                     </div>
@@ -852,8 +686,9 @@
         <!-- Copywrite Text -->
         <div class="copywrite-text d-flex align-items-center justify-content-center">
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                <script>document.write(new Date().getFullYear());</script> Website  <i class="fa fa-heart-o" aria-hidden="true"></i> @ <a href="https://www.youtube.com/@Mr.Shubham_Randive"
-                    target="_blank">A To Z With Shubham</a>
+                <script>document.write(new Date().getFullYear());</script> Website <i class="fa fa-heart-o"
+                    aria-hidden="true"></i> @ <a href="https://www.youtube.com/@Mr.Shubham_Randive" target="_blank">A To
+                    Z With Shubham</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
         </div>
     </footer>
