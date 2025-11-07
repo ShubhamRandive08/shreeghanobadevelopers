@@ -3627,3 +3627,74 @@ img {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/* Fix for Mobile Header and Horizontal Scroll */
+@media only screen and (max-width: 767px) {
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        position: relative;
+    }
+    
+    .header-area {
+        width: 100% !important;
+        max-width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+    
+    .main-header-area {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+    }
+    
+    .classy-nav-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .classy-navbar {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 10px 15px !important;
+    }
+    
+    /* Ensure no element causes horizontal scroll */
+    .container {
+        max-width: 100% !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    .col-12, .col-md-6, .col-xl-4 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+/* Fix for popup on mobile */
+@media only screen and (max-width: 767px) {
+    .popup-overlay {
+        padding-top: 70px !important;
+        z-index: 2147483647 !important;
+    }
+    
+    .popup-content {
+        max-height: calc(100vh - 80px) !important;
+        width: 95% !important;
+        margin: 0 auto !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+}
