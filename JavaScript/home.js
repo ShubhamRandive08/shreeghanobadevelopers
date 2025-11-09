@@ -77,13 +77,13 @@ const projects = {
         pdf: "pdf/NIMGAON991 FINAL-Model.pdf"
     },
     3: {
-        name: "Aditya City 3",
-        rate: "1800/ Sq. Ft.",
+        name: "Jijai Park",
+        rate: "1499 / Sq. Ft.",
         location: "Sanaswadi",
         Contact_No: "+91 9595857072",
-        images: ["img/bg-img/GD3.jpg", "img/bg-img/GD1.jpg", "img/bg-img/GD2.jpg"],
-        description: "\"आदित्य सिटी 3\" हा आदित्य सिटीचा नवीन टप्पा. अधिक सोयी, अधिक सुविधा आणि अधिक आरामदायी जीवनशैली. पूर्ण विकसित रहिवासी परिसर आणि आधुनिक सुविधांसह.",
-        pdf: "pdf/DINGRAJWADI NA-Model2.pdf"
+        images: ["img/bg-img/GD2.jpg"],
+        description: "\"जिजाई पार्क, सनसवाडीच्या नैसर्गिक सौंदर्यात बांधण्यात आलेली ही निवासी संधी आपल्या कुटुंबासाठी परिपूर्ण आहे. आधुनिक सुविधा आणि शांत वातावरणाच्या सान्निध्यात वाढणारा एक संपूर्ण जीवनशैली अनुभव.",
+        pdf: "pdf/JijaiPark.pdf"
     },
     4: {
         name: "Aditya City 4",
