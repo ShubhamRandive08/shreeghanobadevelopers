@@ -2,8 +2,12 @@
 // Code for featured project data
 let currentZoom = 100, currentPage = 1, currentPDF = '';
 
-function openLocationMap() {
-    window.open('https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3593.182934832184!2d74.09911677519486!3d18.653881682465833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDM5JzE0LjAiTiA3NMKwMDYnMDYuMSJF!5e1!3m2!1sen!2sin!4v1762531094522!5m2!1sen!2sin', 'target');
+function openLocationMap(location) {
+    if (location == 'Nimgoan Malungi') {
+        window.open('https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3592.201746922758!2d74.20243457519612!3d18.700172382428583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDQyJzAwLjYiTiA3NMKwMTInMTguMCJF!5e1!3m2!1sen!2sin!4v1762788095440!5m2!1sen!2sin', '_blank');
+    } else if (location === 'Sanasawadi') {
+        window.open('https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3593.182934832184!2d74.09911677519486!3d18.653881682465833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDM5JzE0LjAiTiA3NMKwMDYnMDYuMSJF!5e1!3m2!1sen!2sin!4v1762531094522!5m2!1sen!2sin', '_blank');
+    }
 }
 
 function openPDFModal(pdfPath, title) {
