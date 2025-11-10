@@ -65,7 +65,13 @@ const projects = {
         Contact_No: "+91 9595857072",
         images: ["img/bg-img/GD1.jpg", "img/bg-img/GD2.jpg", "img/bg-img/GD3.jpg"],
         description: "\"आदित्य सिटी\" मध्ये घराला घर, जमिनीला जमीन! सनसवाडीच्या हिरव्यागार वातावरणात, आपल्या स्वप्नांची निवासी जागा. उत्तम सोयी, विकसित परिसर आणि शहराच्या मुख्य भागाशी चांगले रस्ते संपर्क.",
-        pdf: "pdf/DINGRAJWADI NA-Model.pdf"
+        pdf: "pdf/DINGRAJWADI NA-Model.pdf",
+        propertyType: "residential",
+        TotalArea : "1000 Sq.Ft. to 5000 Sq.Ft.",
+        Amenities : "24/7 Water Supply, Gated Community, Children's Play Area, Landscaped Gardens, Security",
+        Status : "Available",
+        NearbyLandmarks : "",
+
     },
     2: {
         name: "SaiKrupa Park",
@@ -74,7 +80,12 @@ const projects = {
         Contact_No: "+91 9595857072",
         images: ["img/NimgoanMalungi/NM1.jpg"],
         description: "\"साईकृपा पार्क\" मध्ये स्वस्त दरात उत्तम जागा! निमगाव मालुंगी येथील शांत वातावरणात आपले स्वतःचे घर बांधण्याची संधी. मूलभूत सोयी, स्वच्छ पाणीपुरवठा आणि चांगली वाहतूक सुविधा.",
-        pdf: "pdf/NIMGAON991 FINAL-Model.pdf"
+        pdf: "pdf/NIMGAON991 FINAL-Model.pdf",
+        propertyType: "residential",
+        TotalArea : "1000 Sq.Ft. to 5000 Sq.Ft.",
+        Amenities : "24/7 Water Supply, Gated Community, Children's Play Area, Landscaped Gardens, Security",
+        Status : "Available",
+        NearbyLandmarks : "",
     },
     3: {
         name: "Jijai Park",
@@ -83,7 +94,12 @@ const projects = {
         Contact_No: "+91 9595857072",
         images: ["img/bg-img/GD2.jpg"],
         description: "\"जिजाई पार्क, सनसवाडीच्या नैसर्गिक सौंदर्यात बांधण्यात आलेली ही निवासी संधी आपल्या कुटुंबासाठी परिपूर्ण आहे. आधुनिक सुविधा आणि शांत वातावरणाच्या सान्निध्यात वाढणारा एक संपूर्ण जीवनशैली अनुभव.",
-        pdf: "pdf/JijaiPark.pdf"
+        pdf: "pdf/JijaiPark.pdf",
+        propertyType: "residential",
+        TotalArea : "1000 Sq.Ft. to 5000 Sq.Ft.",
+        Amenities : "24/7 Water Supply, Gated Community, Children's Play Area, Landscaped Gardens, Security",
+        Status : "Available",
+        NearbyLandmarks : "",
     },
     4: {
         name: "Aditya City 4",
@@ -92,7 +108,12 @@ const projects = {
         Contact_No: "+91 9595857072",
         images: ["img/bg-img/GD4.jpg", "img/bg-img/GD5.jpg", "img/bg-img/GD6.jpg"],
         description: "\"आदित्य सिटी 4\" मध्ये लक्झरी अपार्टमेंट्स आणि विला. स्विमिंग पूल, जिम, बागा आणि इतर प्रीमियम सुविधांसह उच्च दर्जाची राहणी.",
-        pdf: "pdf/DINGRAJWADI NA-Model3.pdf"
+        pdf: "pdf/DINGRAJWADI NA-Model3.pdf",
+        propertyType: "residential",
+        TotalArea : "1000 Sq.Ft. to 5000 Sq.Ft.",
+        Amenities : "24/7 Water Supply, Gated Community, Children's Play Area, Landscaped Gardens, Security",
+        Status : "Available",
+        NearbyLandmarks : "",
     },
     5: {
         name: "Aditya City 5",
@@ -110,7 +131,12 @@ const projects = {
         Contact_No: "+91 9595857072",
         images: ["img/bg-img/GD6.jpg", "img/bg-img/GD1.jpg", "img/bg-img/GD2.jpg"],
         description: "\"आदित्य सिटी 6\" मध्ये इको-फ्रेंडली डिझाइन आणि टिकाऊ बांधकाम. ऊर्जा कार्यक्षमता, पावनापाणी संग्रहण आणि हरित क्षेत्रांसह पर्यावरणास अनुकूल रहिवासी परिसर.",
-        pdf: "pdf/DINGRAJWADI NA-Model5.pdf"
+        pdf: "pdf/DINGRAJWADI NA-Model5.pdf",
+        propertyType: "residential",
+        TotalArea : "1000 Sq.Ft. to 5000 Sq.Ft.",
+        Amenities : "24/7 Water Supply, Gated Community, Children's Play Area, Landscaped Gardens, Security",
+        Status : "Available",
+        NearbyLandmarks : "",
     }
 };
 
@@ -133,6 +159,11 @@ function openProjectPopup(projectId) {
     document.getElementById('projectLocation').textContent = project.location;
     document.getElementById('projectDescription').textContent = project.description;
     document.getElementById('contactNumber').textContent = project.Contact_No;
+    document.getElementById('propertyType').textContent = project.propertyType;
+    document.getElementById('totalArea').textContent = project.TotalArea;
+    document.getElementById('amenities').textContent = project.Amenities;
+    document.getElementById('status').textContent = project.Status;
+    document.getElementById('nearbyLandmarks').textContent = project.NearbyLandmarks;
 
     // Load and display images
     const images = project.images;
@@ -249,6 +280,15 @@ document.addEventListener('DOMContentLoaded', function () {
     // Start auto slide
     startAutoSlide();
 });
+
+
+
+
+
+
+
+
+
 
 // Enquiry form function (you can implement this)
 function openEnquiryForm() {
