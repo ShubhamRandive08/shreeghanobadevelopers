@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>Shree Ghanoba Developers</title>
+    <title>Shri Ghanoba Developers</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Favicon  -->
     <link rel="icon" href="img/core-img/SGD.jpg">
@@ -26,7 +26,7 @@
         <div class="popup-content">
             <button class="close-btn" id="closePopup">&times;</button>
             <div class="popup-header">
-                <h2 id="projectName">Project Name</h2>
+                <h2 id="projectName"></h2>
             </div>
             <div class="popup-body">
                 <!-- Image Slider -->
@@ -97,6 +97,79 @@
     <!-- Pop up end here -->
 
 
+    <!-- Enquiry Form Popup -->
+    <div class="popup-overlay" id="enquiryPopup">
+        <div class="popup-content enquiry-popup">
+            <button class="close-btn" id="closeEnquiryPopup">&times;</button>
+            <div class="popup-header">
+                <h2>Enquire About <span id="enquiryProjectName"></span></h2>
+                <p class="enquiry-subtitle">We'll get back to you within 24 hours</p>
+            </div>
+
+            <div class="popup-body">
+                <form class="enquiry-form" id="enquiryForm">
+                    <div class="form-group">
+                        <label for="enquiryName" class="form-label">
+                            <i class="fas fa-user"></i>
+                            Full Name *
+                        </label>
+                        <input type="text" id="enquiryName" class="form-input" placeholder="Enter your full name"
+                            required>
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="enquiryMobile" class="form-label">
+                            <i class="fas fa-mobile-alt"></i>
+                            Mobile Number *
+                        </label>
+                        <input type="tel" id="enquiryMobile" class="form-input"
+                            placeholder="Enter your 10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required>
+                        <span class="error-message" id="mobileError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="enquiryEmail" class="form-label">
+                            <i class="fas fa-envelope"></i>
+                            Email Address *
+                        </label>
+                        <input type="email" id="enquiryEmail" class="form-input" placeholder="Enter your email address"
+                            required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="enquiryAddress" class="form-label">
+                            <i class="fas fa-home"></i>
+                            Full Address
+                        </label>
+                        <textarea id="enquiryAddress" class="form-textarea" placeholder="Enter your complete address"
+                            rows="3"></textarea>
+                        <span class="error-message" id="addressError"></span>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="enquiryConsent" class="form-checkbox" required>
+                        <label for="enquiryConsent" class="checkbox-label">
+                            I agree to receive updates and promotional information via WhatsApp & Email
+                        </label>
+                        <span class="error-message" id="consentError"></span>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="smart-btn secondary-btn" onclick="closeEnquiryForm()">
+                            Cancel
+                        </button>
+                        <button type="submit" class="smart-btn enquiry-submit-btn" id="submitEnquiry">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Enquiry
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
 
     <!-- Preloader -->
@@ -135,7 +208,7 @@
                     <a class="nav-brand" href="index.html">
                         <div class="logo-container">
                             <div class="logo-3d">
-                                <img src="img/core-img/SGD.jpg" alt="Shree Ghonoba Developers" class="brand-logo">
+                                <img src="img/core-img/SGD.jpg" alt="Shri Ghonoba Developers" class="brand-logo">
                             </div>
                             <span class="brand-text"><b style="color: white;">श्री घनोबा डेव्हलपर्स</b></span>
                         </div>
@@ -319,7 +392,9 @@
                                 <div class="property-meta-data d-flex align-items-end justify-content-between">
                                     <div class="garage"><button class="smart-btn view-details-btn">Details</button>
                                     </div>
-                                    <div class="space"><button class="smart-btn enquiry-btn">Enquiry</button></div>
+                                    <button class="smart-btn enquiry-btn" onclick="openEnquiryForm()">
+                                        <i class="fas fa-phone"></i> Contact Now
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -351,7 +426,9 @@
                                 <div class="property-meta-data d-flex align-items-end justify-content-between">
                                     <div class="garage"><button class="smart-btn view-details-btn">Details</button>
                                     </div>
-                                    <div class="space"><button class="smart-btn enquiry-btn">Enquiry</button></div>
+                                    <button class="smart-btn enquiry-btn" onclick="openEnquiryForm()">
+                                        <i class="fas fa-phone"></i> Contact Now
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -382,7 +459,9 @@
                                 <div class="property-meta-data d-flex align-items-end justify-content-between">
                                     <div class="garage"><button class="smart-btn view-details-btn">Details</button>
                                     </div>
-                                    <div class="space"><button class="smart-btn enquiry-btn">Enquiry</button></div>
+                                    <button class="smart-btn enquiry-btn" onclick="openEnquiryForm()">
+                                        <i class="fas fa-phone"></i> Contact Now
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -413,7 +492,9 @@
                                 <div class="property-meta-data d-flex align-items-end justify-content-between">
                                     <div class="garage"><button class="smart-btn view-details-btn">Details</button>
                                     </div>
-                                    <div class="space"><button class="smart-btn enquiry-btn">Enquiry</button></div>
+                                    <button class="smart-btn enquiry-btn" onclick="openEnquiryForm()">
+                                        <i class="fas fa-phone"></i> Contact Now
+                                    </button>
                                 </div>
                             </div>
                         </div>

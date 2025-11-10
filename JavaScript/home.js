@@ -294,14 +294,291 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
 // Enquiry form function (you can implement this)
+// Enquiry Form Elements
+const enquiryPopup = document.getElementById('enquiryPopup');
+const closeEnquiryPopupBtn = document.getElementById('closeEnquiryPopup');
+const enquiryForm = document.getElementById('enquiryForm');
+let currentProjectName = '';
+
+// Open Enquiry Form
 function openEnquiryForm() {
-    alert('Enquiry form will open here! You can integrate your enquiry system.');
-    // You can implement a modal form or redirect to contact page
+    // Get current project name from the project popup
+    console.log(projectName)
+    currentProjectName = document.getElementById('projectName').textContent;
+    document.getElementById('enquiryProjectName').textContent = currentProjectName;
+    
+    // Close project popup and open enquiry popup
+    closeProjectPopup();
+    
+    // Show enquiry popup
+    enquiryPopup.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    
+    // Add animation
+    setTimeout(() => {
+        enquiryPopup.classList.add('active');
+    }, 10);
+    
+    // Reset form
+    resetEnquiryForm();
 }
 
+// Close Enquiry Form
+function closeEnquiryForm() {
+    enquiryPopup.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    enquiryPopup.classList.remove('active');
+    resetEnquiryForm();
+}
 
+// Reset Enquiry Form
+function resetEnquiryForm() {
+    enquiryForm.reset();
+    clearErrors();
+    hideSuccessMessage();
+}
 
-// Update your existing buttons to use data attributes
-// Add this to your HTML buttons:
-// data-project="1", data-project="2", etc.
+// Clear all error messages
+function clearErrors() {
+    const errorMessages = document.querySelectorAll('.error-message');
+    errorMessages.forEach(error => {
+        error.textContent = '';
+    });
+    
+    const errorInputs = document.querySelectorAll('.form-input.error, .form-textarea.error');
+    errorInputs.forEach(input => {
+        input.classList.remove('error');
+    });
+}
+
+// Show error for specific field
+function showError(fieldId, message) {
+    const field = document.getElementById(fieldId);
+    const errorElement = document.getElementById(fieldId + 'Error');
+    
+    field.classList.add('error');
+    errorElement.textContent = message;
+}
+
+// Hide error for specific field
+function hideError(fieldId) {
+    const field = document.getElementById(fieldId);
+    const errorElement = document.getElementById(fieldId + 'Error');
+    
+    field.classList.remove('error');
+    errorElement.textContent = '';
+}
+
+// Show success message
+function showSuccessMessage() {
+    let successDiv = document.querySelector('.success-message');
+    if (!successDiv) {
+        successDiv = document.createElement('div');
+        successDiv.className = 'success-message';
+        successDiv.innerHTML = `
+            <i class="fas fa-check-circle"></i>
+            <strong>Thank You!</strong> Your enquiry has been submitted successfully. We'll contact you shortly.
+        `;
+        enquiryForm.parentNode.insertBefore(successDiv, enquiryForm);
+    }
+    successDiv.classList.add('show');
+}
+
+// Hide success message
+function hideSuccessMessage() {
+    const successDiv = document.querySelector('.success-message');
+    if (successDiv) {
+        successDiv.classList.remove('show');
+    }
+}
+
+// Validation functions
+function validateName(name) {
+    if (!name.trim()) {
+        return 'Name is required';
+    }
+    if (name.trim().length < 2) {
+        return 'Name must be at least 2 characters long';
+    }
+    if (!/^[a-zA-Z\s]+$/.test(name.trim())) {
+        return 'Name can only contain letters and spaces';
+    }
+    return '';
+}
+
+function validateMobile(mobile) {
+    if (!mobile.trim()) {
+        return 'Mobile number is required';
+    }
+    if (!/^[0-9]{10}$/.test(mobile.trim())) {
+        return 'Please enter a valid 10-digit mobile number';
+    }
+    return '';
+}
+
+function validateEmail(email) {
+    if (!email.trim()) {
+        return 'Email is required';
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+        return 'Please enter a valid email address';
+    }
+    return '';
+}
+
+function validateAddress(address) {
+    if (address.trim() && address.trim().length < 10) {
+        return 'Address should be at least 10 characters long';
+    }
+    return '';
+}
+
+// Real-time validation
+document.addEventListener('DOMContentLoaded', function() {
+    // Name validation
+    document.getElementById('enquiryName').addEventListener('blur', function() {
+        const error = validateName(this.value);
+        if (error) {
+            showError('enquiryName', error);
+        } else {
+            hideError('enquiryName');
+        }
+    });
+
+    // Mobile validation
+    document.getElementById('enquiryMobile').addEventListener('blur', function() {
+        const error = validateMobile(this.value);
+        if (error) {
+            showError('enquiryMobile', error);
+        } else {
+            hideError('enquiryMobile');
+        }
+    });
+
+    // Email validation
+    document.getElementById('enquiryEmail').addEventListener('blur', function() {
+        const error = validateEmail(this.value);
+        if (error) {
+            showError('enquiryEmail', error);
+        } else {
+            hideError('enquiryEmail');
+        }
+    });
+
+    // Address validation
+    document.getElementById('enquiryAddress').addEventListener('blur', function() {
+        const error = validateAddress(this.value);
+        if (error) {
+            showError('enquiryAddress', error);
+        } else {
+            hideError('enquiryAddress');
+        }
+    });
+});
+
+// Form Submission
+enquiryForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form values
+    const formData = {
+        name: document.getElementById('enquiryName').value.trim(),
+        mobile: document.getElementById('enquiryMobile').value.trim(),
+        email: document.getElementById('enquiryEmail').value.trim(),
+        address: document.getElementById('enquiryAddress').value.trim(),
+        project: currentProjectName,
+        consent: document.getElementById('enquiryConsent').checked
+    };
+
+    // Validate all fields
+    const nameError = validateName(formData.name);
+    const mobileError = validateMobile(formData.mobile);
+    const emailError = validateEmail(formData.email);
+    const addressError = validateAddress(formData.address);
+    
+    // if (nameError) showError('enquiryName', nameError);
+    // if (mobileError) showError('enquiryMobile', mobileError);
+    // if (emailError) showError('enquiryEmail', emailError);
+    // if (addressError) showError('enquiryAddress', addressError);
+    
+    // if (!formData.consent) {
+    //     showError('enquiryConsent', 'Please agree to receive updates');
+    // }
+
+    // // Check if there are any errors
+    // const hasErrors = nameError || mobileError || emailError || addressError || !formData.consent;
+    
+    // if (!hasErrors) {
+    //     submitEnquiryForm(formData);
+    // }
+
+    alert('Form submission is currently disabled for demo purposes.');
+
+    setTimeout(() => {
+            resetEnquiryForm();
+            closeEnquiryForm();
+        }, 1000);
+});
+
+// Simulate form submission
+function submitEnquiryForm(formData) {
+    const submitBtn = document.getElementById('submitEnquiry');
+    
+    // Show loading state
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Submitting...';
+
+    // Simulate API call
+    setTimeout(() => {
+        // Here you would typically send the data to your server
+        console.log('Enquiry Form Data:', formData);
+        submitBtn.innerHTML = 'Submitted';
+        // Show success message
+        showSuccessMessage();
+        
+        // Reset button state
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Enquiry';
+        
+        // Reset form after success
+        setTimeout(() => {
+            resetEnquiryForm();
+            closeEnquiryForm();
+        }, 3000);
+        
+    }, 2000);
+}
+
+// Event Listeners for Enquiry Form
+closeEnquiryPopupBtn.addEventListener('click', closeEnquiryForm);
+
+enquiryPopup.addEventListener('click', function(e) {
+    if (e.target === enquiryPopup) {
+        closeEnquiryForm();
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && enquiryPopup.style.display === 'flex') {
+        closeEnquiryForm();
+    }
+});
+
+// Update your existing Contact Now button to use this function
+function updateContactButtons() {
+    const contactButtons = document.querySelectorAll('.enquiry-btn');
+    contactButtons.forEach(button => {
+        button.setAttribute('onclick', 'openEnquiryForm()');
+    });
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    updateContactButtons();
+});
+
+// End of Enquiry form code

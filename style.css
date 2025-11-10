@@ -50,6 +50,228 @@
 @import url(css/jquery-ui.min.css);
 
 
+/* Styling for enquiry form */
+/* Enquiry Popup Styles */
+.enquiry-popup {
+    max-width: 500px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.enquiry-popup .popup-header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.enquiry-popup .popup-header h2 {
+    color: rgb(0, 0, 0);
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.enquiry-subtitle {
+    color: rgba(0, 0, 0, 0.8);
+    margin: 5px 0 0 0;
+    font-size: 0.9rem;
+}
+
+.enquiry-form {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.form-label i {
+    width: 16px;
+    text-align: center;
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.form-input::placeholder, .form-textarea::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Checkbox Styles */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.form-checkbox {
+    margin-top: 3px;
+    transform: scale(1.1);
+}
+
+.checkbox-label {
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    cursor: pointer;
+    flex: 1;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.form-actions .smart-btn {
+    flex: 1;
+    padding: 12px 20px;
+    font-size: 1rem;
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: rgb(0, 0, 0);
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.enquiry-submit-btn {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    border: none;
+    color: rgb(0, 0, 0);
+}
+
+.enquiry-submit-btn:hover {
+    background: linear-gradient(45deg, #45a049, #4CAF50);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.enquiry-submit-btn:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Error Message Styles */
+.error-message {
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: block;
+    min-height: 15px;
+}
+
+.form-input.error, .form-textarea.error {
+    border-color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.1);
+}
+
+/* Success Message */
+.success-message {
+    background: rgba(76, 175, 80, 0.9);
+    color: rgb(0, 0, 0);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.success-message.show {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+/* Loading State */
+.enquiry-submit-btn.loading {
+    position: relative;
+    color: transparent;
+}
+
+.enquiry-submit-btn.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid rgb(0, 0, 0);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .enquiry-popup {
+        margin: 20px;
+        max-width: calc(100vw - 40px);
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .checkbox-group {
+        align-items: flex-start;
+    }
+}
 
 /* Styling for the our service page */
 
