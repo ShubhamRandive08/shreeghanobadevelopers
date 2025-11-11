@@ -102,7 +102,7 @@
 .form-input, .form-textarea {
     width: 100%;
     padding: 12px 15px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(0, 0, 0, 0.3);
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.1);
     color: rgb(0, 0, 0);
@@ -185,7 +185,7 @@
 }
 
 .enquiry-submit-btn:disabled {
-    background: #cccccc;
+    background: #000000;
     cursor: not-allowed;
     transform: none;
     box-shadow: none;

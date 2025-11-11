@@ -306,9 +306,9 @@ let projectName = '';
 // Open Enquiry Form
 function openEnquiryForm(project) {
     projectName = project;
-    console.log(projectName)
     currentProjectName = document.getElementById('projectName').textContent;
     document.getElementById('enquiryProjectName').textContent = projectName;
+    document.getElementById('enquiryAreaName').value = projectName;
 
     
     // Close project popup and open enquiry popup
@@ -576,7 +576,7 @@ document.addEventListener('keydown', function(e) {
 function updateContactButtons() {
     const contactButtons = document.querySelectorAll('.enquiry-btn');
     contactButtons.forEach(button => {
-        button.setAttribute('onclick', 'openEnquiryForm()');
+        button.setAttribute('onclick', 'openEnquiryForm(' + data + ')');
     });
 }
 
