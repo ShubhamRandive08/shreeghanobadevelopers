@@ -301,13 +301,15 @@ const enquiryPopup = document.getElementById('enquiryPopup');
 const closeEnquiryPopupBtn = document.getElementById('closeEnquiryPopup');
 const enquiryForm = document.getElementById('enquiryForm');
 let currentProjectName = '';
+let projectName = '';
 
 // Open Enquiry Form
-function openEnquiryForm() {
-    // Get current project name from the project popup
+function openEnquiryForm(project) {
+    projectName = project;
     console.log(projectName)
     currentProjectName = document.getElementById('projectName').textContent;
-    document.getElementById('enquiryProjectName').textContent = currentProjectName;
+    document.getElementById('enquiryProjectName').textContent = projectName;
+
     
     // Close project popup and open enquiry popup
     closeProjectPopup();
@@ -316,6 +318,8 @@ function openEnquiryForm() {
     enquiryPopup.style.display = 'flex';
     document.body.style.overflow = 'hidden';
     
+    let areaName = document.getElementById('areaName');
+    areaName.value = project;
     // Add animation
     setTimeout(() => {
         enquiryPopup.classList.add('active');
@@ -479,79 +483,79 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Form Submission
-enquiryForm.addEventListener('submit', function(e) {
-    e.preventDefault();
+// // Form Submission
+// enquiryForm.addEventListener('submit', function(e) {
+//     e.preventDefault();
     
-    // Get form values
-    const formData = {
-        name: document.getElementById('enquiryName').value.trim(),
-        mobile: document.getElementById('enquiryMobile').value.trim(),
-        email: document.getElementById('enquiryEmail').value.trim(),
-        address: document.getElementById('enquiryAddress').value.trim(),
-        project: currentProjectName,
-        consent: document.getElementById('enquiryConsent').checked
-    };
+//     // Get form values
+//     const formData = {
+//         name: document.getElementById('enquiryName').value.trim(),
+//         mobile: document.getElementById('enquiryMobile').value.trim(),
+//         email: document.getElementById('enquiryEmail').value.trim(),
+//         address: document.getElementById('enquiryAddress').value.trim(),
+//         project: currentProjectName,
+//         consent: document.getElementById('enquiryConsent').checked
+//     };
 
-    // Validate all fields
-    const nameError = validateName(formData.name);
-    const mobileError = validateMobile(formData.mobile);
-    const emailError = validateEmail(formData.email);
-    const addressError = validateAddress(formData.address);
+//     // Validate all fields
+//     const nameError = validateName(formData.name);
+//     const mobileError = validateMobile(formData.mobile);
+//     const emailError = validateEmail(formData.email);
+//     const addressError = validateAddress(formData.address);
     
-    // if (nameError) showError('enquiryName', nameError);
-    // if (mobileError) showError('enquiryMobile', mobileError);
-    // if (emailError) showError('enquiryEmail', emailError);
-    // if (addressError) showError('enquiryAddress', addressError);
+//     // if (nameError) showError('enquiryName', nameError);
+//     // if (mobileError) showError('enquiryMobile', mobileError);
+//     // if (emailError) showError('enquiryEmail', emailError);
+//     // if (addressError) showError('enquiryAddress', addressError);
     
-    // if (!formData.consent) {
-    //     showError('enquiryConsent', 'Please agree to receive updates');
-    // }
+//     // if (!formData.consent) {
+//     //     showError('enquiryConsent', 'Please agree to receive updates');
+//     // }
 
-    // // Check if there are any errors
-    // const hasErrors = nameError || mobileError || emailError || addressError || !formData.consent;
+//     // // Check if there are any errors
+//     // const hasErrors = nameError || mobileError || emailError || addressError || !formData.consent;
     
-    // if (!hasErrors) {
-    //     submitEnquiryForm(formData);
-    // }
+//     // if (!hasErrors) {
+//     //     submitEnquiryForm(formData);
+//     // }
 
-    alert('Form submission is currently disabled for demo purposes.');
+//     alert('Form submission is currently disabled for demo purposes.');
 
-    setTimeout(() => {
-            resetEnquiryForm();
-            closeEnquiryForm();
-        }, 1000);
-});
+//     setTimeout(() => {
+//             resetEnquiryForm();
+//             closeEnquiryForm();
+//         }, 1000);
+// });
 
-// Simulate form submission
-function submitEnquiryForm(formData) {
-    const submitBtn = document.getElementById('submitEnquiry');
+// // Simulate form submission
+// function submitEnquiryForm(formData) {
+//     const submitBtn = document.getElementById('submitEnquiry');
     
-    // Show loading state
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Submitting...';
+//     // Show loading state
+//     submitBtn.disabled = true;
+//     submitBtn.innerHTML = 'Submitting...';
 
-    // Simulate API call
-    setTimeout(() => {
-        // Here you would typically send the data to your server
-        console.log('Enquiry Form Data:', formData);
-        submitBtn.innerHTML = 'Submitted';
-        // Show success message
-        showSuccessMessage();
+//     // Simulate API call
+//     setTimeout(() => {
+//         // Here you would typically send the data to your server
+//         console.log('Enquiry Form Data:', formData);
+//         submitBtn.innerHTML = 'Submitted';
+//         // Show success message
+//         showSuccessMessage();
         
-        // Reset button state
-        submitBtn.disabled = false;
-        submitBtn.classList.remove('loading');
-        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Enquiry';
+//         // Reset button state
+//         submitBtn.disabled = false;
+//         submitBtn.classList.remove('loading');
+//         submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Enquiry';
         
-        // Reset form after success
-        setTimeout(() => {
-            resetEnquiryForm();
-            closeEnquiryForm();
-        }, 3000);
+//         // Reset form after success
+//         setTimeout(() => {
+//             resetEnquiryForm();
+//             closeEnquiryForm();
+//         }, 3000);
         
-    }, 2000);
-}
+//     }, 2000);
+// }
 
 // Event Listeners for Enquiry Form
 closeEnquiryPopupBtn.addEventListener('click', closeEnquiryForm);

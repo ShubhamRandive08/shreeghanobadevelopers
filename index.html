@@ -102,7 +102,7 @@
         <div class="popup-content enquiry-popup">
             <button class="close-btn" id="closeEnquiryPopup">&times;</button>
             <div class="popup-header">
-                <h2>Enquire About <span id="enquiryProjectName"></span></h2>
+                <h2>Enquiry Form <span id="enquiryProjectName"></span></h2>
                 <p class="enquiry-subtitle">We'll get back to you within 24 hours</p>
             </div>
 
@@ -147,11 +147,20 @@
                             rows="3"></textarea>
                         <span class="error-message" id="addressError"></span>
                     </div>
+                    <div class="form-group">
+                        <label for="enquiryAreaName" class="form-label">
+                           <i class="fas fa-map-marker-alt"></i>
+                            Area Name *
+                        </label>
+                        <input type="text" id="areaName" class="form-input" disabled
+                            required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
 
                     <div class="form-group checkbox-group">
                         <input type="checkbox" id="enquiryConsent" class="form-checkbox" required>
                         <label for="enquiryConsent" class="checkbox-label">
-                            I agree to receive updates and promotional information via WhatsApp & Email
+                            I agree to receive updates and promotional information via <a href="https://wa.me/919595857072" target="_blank" class="whatsapp-link">WhatsApp</a> & <a href="mailto:ghanobadevelopers7@gmail.com" target="_blank" class="whatsapp-link">Email</a>
                         </label>
                         <span class="error-message" id="consentError"></span>
                     </div>
@@ -392,8 +401,8 @@
                                 <div class="property-meta-data d-flex align-items-end justify-content-between">
                                     <div class="garage"><button class="smart-btn view-details-btn">Details</button>
                                     </div>
-                                    <button class="smart-btn enquiry-btn" onclick="openEnquiryForm()">
-                                        <i class="fas fa-phone"></i> Contact Now
+                                    <button class="smart-btn enquiry-btn" onclick="openEnquiryForm('Aditya City')">
+                                        <i class="fas fa-phone"></i> Enquiry Now
                                     </button>
                                 </div>
                             </div>
@@ -426,8 +435,8 @@
                                 <div class="property-meta-data d-flex align-items-end justify-content-between">
                                     <div class="garage"><button class="smart-btn view-details-btn">Details</button>
                                     </div>
-                                    <button class="smart-btn enquiry-btn" onclick="openEnquiryForm()">
-                                        <i class="fas fa-phone"></i> Contact Now
+                                    <button class="smart-btn enquiry-btn" onclick="openEnquiryForm('Aditya City')">
+                                        <i class="fas fa-phone"></i> Enquiry Now
                                     </button>
                                 </div>
                             </div>
@@ -459,8 +468,8 @@
                                 <div class="property-meta-data d-flex align-items-end justify-content-between">
                                     <div class="garage"><button class="smart-btn view-details-btn">Details</button>
                                     </div>
-                                    <button class="smart-btn enquiry-btn" onclick="openEnquiryForm()">
-                                        <i class="fas fa-phone"></i> Contact Now
+                                    <button class="smart-btn enquiry-btn" onclick="openEnquiryForm('Aditya City')">
+                                        <i class="fas fa-phone"></i> Enquiry Now
                                     </button>
                                 </div>
                             </div>
@@ -492,8 +501,8 @@
                                 <div class="property-meta-data d-flex align-items-end justify-content-between">
                                     <div class="garage"><button class="smart-btn view-details-btn">Details</button>
                                     </div>
-                                    <button class="smart-btn enquiry-btn" onclick="openEnquiryForm()">
-                                        <i class="fas fa-phone"></i> Contact Now
+                                    <button class="smart-btn enquiry-btn" onclick="openEnquiryForm('Aditya City')">
+                                        <i class="fas fa-phone"></i> Enquiry Now
                                     </button>
                                 </div>
                             </div>
