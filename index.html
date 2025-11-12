@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Favicon  -->
     <link rel="icon" href="img/core-img/SGD.jpg">
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Style CSS -->
     <link rel="stylesheet" href="style.css">
 
@@ -149,18 +149,20 @@
                     </div>
                     <div class="form-group">
                         <label for="enquiryAreaName" class="form-label">
-                           <i class="fas fa-map-marker-alt"></i>
+                            <i class="fas fa-map-marker-alt"></i>
                             Area Name *
                         </label>
-                        <input type="text" id="enquiryAreaName" class="form-input" disabled 
-                            required>
+                        <input type="text" id="enquiryAreaName" class="form-input" disabled required>
                         <span class="error-message" id="emailError"></span>
                     </div>
 
                     <div class="form-group checkbox-group">
                         <input type="checkbox" id="enquiryConsent" class="form-checkbox" required>
                         <label for="enquiryConsent" class="checkbox-label">
-                            I agree to receive updates and promotional information via <a href="https://wa.me/919595857072" target="_blank" class="whatsapp-link">WhatsApp</a> & <a href="mailto:ghanobadevelopers7@gmail.com" target="_blank" class="whatsapp-link">Email</a>
+                            I agree to receive updates and promotional information via <a
+                                href="https://wa.me/919595857072" target="_blank" class="whatsapp-link">WhatsApp</a> &
+                            <a href="mailto:ghanobadevelopers7@gmail.com" target="_blank"
+                                class="whatsapp-link">Email</a>
                         </label>
                         <span class="error-message" id="consentError"></span>
                     </div>
@@ -169,7 +171,8 @@
                         <button type="button" class="smart-btn secondary-btn" onclick="closeEnquiryForm()">
                             Cancel
                         </button>
-                        <button type="submit" class="smart-btn enquiry-submit-btn" id="submitEnquiry">
+                        <button type="submit" class="smart-btn enquiry-submit-btn" id="submitEnquiry"
+                            onclick="submitEnquiryForm()">
                             <i class="fas fa-paper-plane"></i>
                             Submit Enquiry
                         </button>
@@ -179,6 +182,170 @@
         </div>
     </div>
 
+    <script>
+        // Google Apps Script URL - Replace with your deployed script URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxpcQ3EdvuYEc9DZ5Ou1nHfQ7IszJbRv4Ig-FlIo_20PkPeq_4dICMc8rAlSSvNgDpf/exec';
+
+        async function submitEnquiryForm(event) {
+            if (event) event.preventDefault();
+
+            const form = document.getElementById('enquiryForm');
+            const submitBtn = document.getElementById('submitEnquiry');
+            const originalText = submitBtn.innerHTML;
+
+            // Get form values
+            const formData = {
+                enquiryName: document.getElementById('enquiryName').value.trim(),
+                enquiryMobile: document.getElementById('enquiryMobile').value.trim(),
+                enquiryEmail: document.getElementById('enquiryEmail').value.trim(),
+                enquiryAddress: document.getElementById('enquiryAddress').value.trim(),
+                enquiryAreaName: document.getElementById('enquiryAreaName').value.trim(),
+                enquiryConsent: document.getElementById('enquiryConsent').checked
+            };
+
+            // Validation
+            if (!validateForm(formData)) {
+                return false;
+            }
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode : "no-cors",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    // Show success message
+                    Swal.fire({
+                        title: 'Success!',
+                        text: result.message,
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        timer: 3000
+                    });
+
+                    // Reset form
+                    form.reset();
+                    setTimeout(() => {
+                        closeEnquiryForm();
+                    }, 1000);
+                } else {
+                    throw new Error(result.message);
+                }
+
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Failed to submit enquiry. Please try again.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
+
+            return false;
+        }
+
+        // Form validation function
+        function validateForm(formData) {
+            let isValid = true;
+
+            // Clear previous errors
+            clearErrors();
+
+            // Name validation
+            if (!formData.enquiryName) {
+                showError('nameError', 'Please enter your full name');
+                isValid = false;
+            } else if (formData.enquiryName.length < 2) {
+                showError('nameError', 'Name must be at least 2 characters long');
+                isValid = false;
+            }
+
+            // Mobile validation
+            const mobileRegex = /^[0-9]{10}$/;
+            if (!formData.enquiryMobile) {
+                showError('mobileError', 'Please enter your mobile number');
+                isValid = false;
+            } else if (!mobileRegex.test(formData.enquiryMobile)) {
+                showError('mobileError', 'Please enter a valid 10-digit mobile number');
+                isValid = false;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!formData.enquiryEmail) {
+                showError('emailError', 'Please enter your email address');
+                isValid = false;
+            } else if (!emailRegex.test(formData.enquiryEmail)) {
+                showError('emailError', 'Please enter a valid email address');
+                isValid = false;
+            }
+
+            // Area Name validation
+            if (!formData.enquiryAreaName) {
+                showError('areaError', 'Area name is required');
+                isValid = false;
+            }
+
+            // Consent validation
+            if (!formData.enquiryConsent) {
+                showError('consentError', 'Please agree to receive updates');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // Helper function to show error messages
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+            }
+        }
+
+        // Helper function to clear all errors
+        function clearErrors() {
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach(element => {
+                element.textContent = '';
+                element.style.display = 'none';
+            });
+        }
+
+        // Initialize form event listeners
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('enquiryForm');
+            if (form) {
+                form.addEventListener('submit', submitEnquiryForm);
+            }
+        });
+
+        // Close enquiry form function
+        function closeEnquiryForm() {
+            const enquiryForm = document.querySelector('.enquiry-form-container');
+            if (enquiryForm) {
+                enquiryForm.style.display = 'none';
+            }
+            clearErrors();
+        }
+    </script>
 
 
     <!-- Preloader -->
