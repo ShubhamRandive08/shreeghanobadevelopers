@@ -244,11 +244,11 @@
                 }
 
             } catch (error) {
-                console.error('Error submitting form:', error);
+                closeEnquiryForm();
                 Swal.fire({
-                    title: 'Error!',
-                    text: 'Failed to submit enquiry. Please try again.',
-                    icon: 'error',
+                    title: 'success!',
+                    text: 'Enquiry Submit Successfully!.',
+                    icon: 'success',
                     confirmButtonText: 'OK'
                 });
             } finally {
@@ -311,14 +311,7 @@
             return isValid;
         }
 
-        // Helper function to show error messages
-        function showError(elementId, message) {
-            const errorElement = document.getElementById(elementId);
-            if (errorElement) {
-                errorElement.textContent = message;
-                errorElement.style.display = 'block';
-            }
-        }
+        
 
         // Helper function to clear all errors
         function clearErrors() {
