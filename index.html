@@ -184,7 +184,7 @@
 
     <script>
         // Google Apps Script URL - Replace with your deployed script URL
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxpcQ3EdvuYEc9DZ5Ou1nHfQ7IszJbRv4Ig-FlIo_20PkPeq_4dICMc8rAlSSvNgDpf/exec';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxQ1Vv8EpZYRlw7cZW444NAVVKGCA0hFlPPvnlg7K8ooDt6OmdViwSksqtt8GNojvIy/exec';
 
         async function submitEnquiryForm(event) {
             if (event) event.preventDefault();
@@ -215,7 +215,7 @@
             try {
                 const response = await fetch(SCRIPT_URL, {
                     method: 'POST',
-                    mode : "no-cors",
+                    mode: "no-cors",
                     headers: {
                         'Content-Type': 'application/json',
                     },
@@ -231,7 +231,8 @@
                         text: result.message,
                         icon: 'success',
                         confirmButtonText: 'OK',
-                        timer: 3000
+                        timer: 3000,
+                        
                     });
 
                     // Reset form
@@ -249,7 +250,25 @@
                     title: 'success!',
                     text: 'Enquiry Submit Successfully!.',
                     icon: 'success',
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'OK',
+                   html: `
+        Enquiry Submitted Successfully!
+        <br><br>
+        <div style="text-align: center;">
+            <p>For immediate assistance, contact us on:</p>
+            <a href="https://wa.me/919595857072" target="_blank" class="whatsapp-link" 
+               style="display: inline-block; background: #25D366; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-top: 10px;">
+               📱 WhatsApp
+            </a>
+        </div>
+
+        <br>
+            <a href="https://g.page/r/CRM2APIU5VCqEBM/review " target="_blank" class="whatsapp-link" 
+               style="display: inline-block; background: black; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-top: 10px;">
+                Google Review
+            </a>
+        </div>
+    `  
                 });
             } finally {
                 // Reset button state
@@ -311,7 +330,7 @@
             return isValid;
         }
 
-        
+
 
         // Helper function to clear all errors
         function clearErrors() {
@@ -413,6 +432,7 @@
                                         <li><a href="#">Blog</a>
                                             <ul class="dropdown">
                                                 <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="video.html">Video</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="contact.html">Contact</a></li>
@@ -653,8 +673,9 @@
                                         <span class="pdf-text">PDF</span>
                                     </button>
                                 </div>
-                                <p class="location" onclick="openLocationMap()"><i class="fas fa-map-marker-alt"></i>
-                                    Sanaswadi</p>
+                                <p class="location" onclick="openLocationMap('Sanasawadi')"><i class="fas fa-map-marker-alt"></i>
+                                    Kasari </p>
+
                                 <p>"जिजाई पार्क, सनसवाडीच्या नैसर्गिक सौंदर्यात बांधण्यात आलेली ही निवासी संधी आपल्या
                                     कुटुंबासाठी परिपूर्ण आहे. आधुनिक सुविधा आणि शांत वातावरणाच्या सान्निध्यात वाढणारा एक
                                     संपूर्ण जीवनशैली अनुभव."</p>

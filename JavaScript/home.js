@@ -7,6 +7,8 @@ function openLocationMap(location) {
         window.open('https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3592.201746922758!2d74.20243457519612!3d18.700172382428583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDQyJzAwLjYiTiA3NMKwMTInMTguMCJF!5e1!3m2!1sen!2sin!4v1762788095440!5m2!1sen!2sin', '_blank');
     } else if (location === 'Sanasawadi') {
         window.open('https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3593.182934832184!2d74.09911677519486!3d18.653881682465833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDM5JzE0LjAiTiA3NMKwMDYnMDYuMSJF!5e1!3m2!1sen!2sin!4v1762531094522!5m2!1sen!2sin', '_blank');
+    }else if(location == 'Kasari'){
+        window.open('https://www.google.com/maps/embed?pb=!1m24!1m12!1m3!1d1162.0325808491118!2d74.19025489411202!3d18.692080553070827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m9!3e9!4m3!3m2!1d18.6487549!2d73.7444596!4m3!3m2!1d18.6918538!2d74.1920408!5e1!3m2!1sen!2sin!4v1762968353567!5m2!1sen!2sin', '_blank')
     }
 }
 

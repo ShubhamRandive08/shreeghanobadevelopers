@@ -32,7 +32,7 @@
         <div class="top-header-area">
             <div class="h-100 d-md-flex justify-content-between align-items-center">
                 <div class="email-address">
-                    <a href="mailto:contact@southtemplate.com">contact@southtemplate.com</a>
+                    <a href="mailto:contact@southtemplate.com">ghanobadevelopers7@gmail.com</a>
                 </div>
                 <div class="phone-number d-flex">
                     <div class="icon">
@@ -102,6 +102,7 @@
                                 <li><a href="our-service.html">Our Services</a></li>
                                 <li><a href="listings.html">Properties</a></li>
                                 <li><a href="blog.html">Blog</a></li>
+
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
 
@@ -112,8 +113,9 @@
                                     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                 </form>
                             </div>
-                            <!-- Nav End -->
                         </div>
+                        <!-- Nav End -->
+                    </div>
                 </nav>
             </div>
         </div>
@@ -126,7 +128,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcumb-content">
-                        <h3 class="breadcumb-title">Contact</h3>
+                        <h3 class="breadcumb-title">Social Media</h3>
                     </div>
                 </div>
             </div>
@@ -134,145 +136,332 @@
     </section>
     <!-- ##### Breadcumb Area End ##### -->
 
-    <section class="south-contact-area section-padding-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="contact-heading">
-                        <h6>Contact info</h6>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-lg-4">
-                    <div class="content-sidebar">
-                        <!-- Office Hours -->
-                        <div class="weekly-office-hours">
-                            <ul>
-                                <li class="d-flex align-items-center justify-content-between"><span>Monday -
-                                        Sunday</span> <span>10 AM - 7 PM</span></li>
-
-                            </ul>
-                        </div>
-                        <!-- Address -->
-                        <div class="address mt-30">
-                            <h6><img src="img/icons/phone-call.png" alt=""> +91 9595857072</h6>
-                            <h6><img src="img/icons/phone-call.png" alt=""> +91 8766500070</h6>
-                            <h6><img src="img/icons/phone-call.png" alt=""> +91 7798347575</h6>
-                            <h6><img src="img/icons/phone-call.png" alt=""> +91 9168904917</h6>
-                            <h6><img src="img/icons/envelope.png" alt=""> office@template.com</h6>
-                            <h6><img src="img/icons/location.png" alt=""> Haveli Complex, Kalewadi Pimpari Road Near
-                                Dhanagarbaba Mandir, Thergoan, 411033</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Form Area -->
-                <div class="col-12 col-lg-8">
-                    <div class="contact-form">
-                        <form action="#" method="post" name="submit-to-google-sheet">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="name" id="contact-name"
-                                    placeholder="Your Name">
-                            </div>
-                            <div class="form-group">
-                                <input type="number" class="form-control" name="number" id="contact-number"
-                                    placeholder="Your Phone">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="contact-email"
-                                    placeholder="Your Email">
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="message" id="msg" cols="30" rows="10"
-                                    placeholder="Your Message"></textarea>
-                            </div>
-                            <button id="submit-btn" class="btn south-btn">
-                                <span id="btn-text">Send Message</span>
-                            </button>
-                        </form>
-                    </div>
+    <!-- Video Gallery Section -->
+<section class="video-gallery-section section-padding-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    <h2>Featured Videos</h2>
+                    <p>Watch our latest property guides and tours</p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbz46LbaNGFfuQ4bpfA0i6lGUVuz7Z7yR-SOVDB6Suv7m79w0xMwRlx2VyfkjJFhla_g8A/exec'
-        const form = document.forms['submit-to-google-sheet']
-        const msg = document.getElementById('msg')
-        const submitBtn = document.getElementById('submit-btn')
-        const btnText = document.getElementById('btn-text')
-
-        form.addEventListener('submit', e => {
-            e.preventDefault()
-
-            // Show loading state
-            submitBtn.disabled = true
-            btnText.innerHTML = '<span class="loading"></span> Sending...'
-
-            fetch(scriptURL, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
-                .then(() => {
-                    // Show SweetAlert success message
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Thank you! Your message has been sent successfully.',
-                        icon: 'success',
-                        confirmButtonText: 'OK',
-                        timer: 4000,
-                        timerProgressBar: true,
-                        didClose: () => {
-                            // Redirect after 4 seconds
-                            window.location.href = 'https://g.page/r/CRM2APIU5VCqEBM/review';
-                        }
-                    });
-
-                    // Also set a timeout as backup in case SweetAlert doesn't trigger redirect
-                    setTimeout(() => {
-                        window.location.href = 'https://g.page/r/CRM2APIU5VCqEBM/review';
-                    }, 4000);
-
-                    form.reset()
-                })
-                .catch(error => {
-                    // Show SweetAlert error message
-                    Swal.fire({
-                        title: 'Error!',
-                        text: 'Sorry, there was an error sending your message. Please try again.',
-                        icon: 'error',
-                        confirmButtonText: 'Try Again'
-                    });
-
-                    console.error('Error!', error.message)
-                })
-                .finally(() => {
-                    // Reset button state
-                    submitBtn.disabled = false
-                    btnText.innerHTML = 'Send Message'
-                })
-        })
-    </script>
-
-    <!-- Google Maps -->
-    <div class="map-area mb-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="map-wrapper">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.1380501757576!2d73.77852347496524!3d18.608714382501958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b90f3bb21c83%3A0xaa50e514f2003613!2sShree%20Ghanoba%20Developers!5e1!3m2!1sen!2sin!4v1762336728261!5m2!1sen!2sin"
-                            class="google-map" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="video-gallery-container">
+                    <div class="video-gallery-scroll">
+                        <!-- Video 1 -->
+                        <div class="video-item">
+                            <div class="video-thumbnail">
+                                <img src="img/core-img/SGD.jpg" alt="Property Investment Tips">
+                                <div class="video-play-btn">
+                                    <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
+                                        <circle cx="35" cy="35" r="35" fill="rgba(255,255,255,0.9)"/>
+                                        <path d="M30 25L45 35L30 45V25Z" fill="#2a2a2a"/>
+                                    </svg>
+                                </div>
+                                <div class="video-overlay"></div>
+                            </div>
+                            <div class="video-content">
+                                <h3>Property Investment Tips</h3>
+                                <p>Essential strategies for successful real estate investment in today's market.</p>
+                            </div>
+                            <div class="video-player" data-video-id="ZpIHJ6xClkQ">
+                                <!-- YouTube iframe will be inserted here when clicked -->
+                            </div>
+                        </div>
+                        
+                        
+                        <!-- Video 3 -->
+                        <div class="video-item">
+                            <div class="video-thumbnail">
+                                <img src="img/core-img/SGD.jpg" alt="Interior Design">
+                                <div class="video-play-btn">
+                                    <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
+                                        <circle cx="35" cy="35" r="35" fill="rgba(255,255,255,0.9)"/>
+                                        <path d="M30 25L45 35L30 45V25Z" fill="#2a2a2a"/>
+                                    </svg>
+                                </div>
+                                <div class="video-overlay"></div>
+                            </div>
+                            <div class="video-content">
+                                <h3>Interior Design Trends</h3>
+                                <p>Discover the latest interior design trends for modern homes.</p>
+                            </div>
+                            <div class="video-player" data-video-id="oQRxPO7TBiA">
+                                <!-- YouTube iframe will be inserted here when clicked -->
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
+<style>
+/* Video Gallery Section Styles */
+.video-gallery-section {
+    background: #f8f9fa;
+    margin: 50px 0;
+}
 
+.section-heading h2 {
+    font-size: 32px;
+    color: #2a2a2a;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.section-heading p {
+    color: #6c757d;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.video-gallery-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.video-gallery-scroll {
+    display: flex;
+    gap: 25px;
+    padding: 10px 5px 30px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+}
+
+.video-gallery-scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+.video-item {
+    flex: 0 0 auto;
+    width: 320px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.video-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.video-thumbnail {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.video-item:hover .video-thumbnail img {
+    transform: scale(1.05);
+}
+
+.video-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.video-thumbnail:hover .video-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-thumbnail:hover .video-overlay {
+    opacity: 1;
+}
+
+.video-content {
+    padding: 20px;
+}
+
+.video-content h3 {
+    font-size: 18px;
+    color: #2a2a2a;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.video-content p {
+    font-size: 14px;
+    color: #6c757d;
+    line-height: 1.5;
+}
+
+.video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: none;
+    z-index: 10;
+}
+
+.video-player iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Active video state */
+.video-item.active {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.video-item.active .video-thumbnail {
+    display: none;
+}
+
+.video-item.active .video-content {
+    display: none;
+}
+
+.video-item.active .video-player {
+    display: block;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .video-item {
+        width: 280px;
+    }
+    
+    .video-thumbnail {
+        height: 180px;
+    }
+    
+    .video-content {
+        padding: 15px;
+    }
+    
+    .video-content h3 {
+        font-size: 16px;
+    }
+    
+    .video-content p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 576px) {
+    .video-item {
+        width: 260px;
+    }
+    
+    .video-thumbnail {
+        height: 160px;
+    }
+    
+    .section-heading h2 {
+        font-size: 26px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const videoItems = document.querySelectorAll('.video-item');
+    
+    videoItems.forEach(item => {
+        const thumbnail = item.querySelector('.video-thumbnail');
+        const playerContainer = item.querySelector('.video-player');
+        const videoId = playerContainer.getAttribute('data-video-id');
+        
+        thumbnail.addEventListener('click', function() {
+            // Close any other playing videos
+            videoItems.forEach(video => {
+                if (video !== item && video.classList.contains('active')) {
+                    video.classList.remove('active');
+                    const iframe = video.querySelector('iframe');
+                    if (iframe) {
+                        iframe.remove();
+                    }
+                }
+            });
+            
+            // Toggle current video
+            if (item.classList.contains('active')) {
+                item.classList.remove('active');
+                const iframe = playerContainer.querySelector('iframe');
+                if (iframe) {
+                    iframe.remove();
+                }
+            } else {
+                item.classList.add('active');
+                
+                // Create and insert YouTube iframe
+                const iframe = document.createElement('iframe');
+                iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
+                
+                playerContainer.appendChild(iframe);
+                
+                // Scroll the video into view on mobile
+                if (window.innerWidth <= 768) {
+                    item.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center',
+                        inline: 'center'
+                    });
+                }
+            }
+        });
+    });
+    
+    // Close video when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.video-item')) {
+            videoItems.forEach(item => {
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active');
+                    const iframe = item.querySelector('iframe');
+                    if (iframe) {
+                        iframe.remove();
+                    }
+                }
+            });
+        }
+    });
+});
+</script>
+    <!-- ##### Blog Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area section-padding-100-0 bg-img gradient-background-overlay"
@@ -348,8 +537,6 @@
     </footer>
     <!-- ##### Footer Area End ##### -->
 
-
-
     <!-- jQuery (Necessary for All JavaScript Plugins) -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
@@ -362,9 +549,6 @@
     <script src="js/jquery-ui.min.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
-    <!-- Google Maps -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwuyLRa1uKNtbgx6xAJVmWy-zADgegA2s"></script>
-    <script src="js/map-active.js"></script>
 
 </body>
 
